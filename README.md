@@ -48,7 +48,7 @@ The CloudFormation template does not include:
 You will have to deploy your EC2 Syslog server yourself and install the CloudWatch Logs Agent yourself. SeeAWS documentations
   - to install the Agent on a Linux EC2 instance: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html
   - to configure the Agent: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html
-In the code folder, I provide the awslogs.conf file I am using on my Syslog server.
+In the code_and_config folder, I provide the awslogs.conf file I am using on my Syslog server.
   - IMPORTANT: do not change the names of the CloudWatch Logs' log stream or log groups otherwise the IAM Policies and Roles created by the CloudFormation template won't give access to the correct log groups and the Lambda function wrangling the logs won't get subscribed to the correct log group
   - If you are not interested in processing the Pexip Infinity "audit" logs and haven't configured the Pexip Infinity server to send the audit logs to this Syslog server, remove the "Pexip_Management_Server_Audit_Logs" and "Pexip_Conference_Server_Audit_Logs" configuration
   - Adjust parameters like the buffer_duration based on your environment and the amount of logs it generates (see the section below "I am missing logs in CloudWatch Logs...").
