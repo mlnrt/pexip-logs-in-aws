@@ -14,7 +14,7 @@ It contains
   - an AWS CloudFormation YAML template which will provision most of the needed resources (IAM roles, CloudWatch Logs log groups, Lambda Functions, Glue databases and tables...),
   - the code for the Lambda functions,
   - a configuration sample file for the AWS CloudWatch Logs Agent which must be installed on the Syslog server (IMPORTANT: use the same names for the CloudWatch Logs' log group and log stream - see the details below),
-  - a log metadata file, containing the data structure of all the types of Pexip Infinity logs I have seen in my lab. It is used by the Lambda function which creates all the AWS Glue tables and partitions based on the processed log files already stored in S3. If some types of logs are missing (and some are for sure, like logs for the integration with Microsoft SfB and Teams, which I do not have in my lab) in this case run the provided Glue Crawler (provisioned through the CloudFormation template) against the corresponding log folder in S3.
+  - a log metadata file, containing the data structure of all the types of Pexip Infinity logs I have seen in my lab. It is used by the two Lambda function which create all the AWS Glue tables and partitions based on the processed log files already stored in S3. If some types of logs are missing (and some are for sure, like logs for the integration with Microsoft SfB and Teams, which I do not have in my lab) in this case run the provided Glue Crawler (provisioned through the CloudFormation template) against the corresponding log folder in S3.
   
 # Using the CloudFormation template
 
