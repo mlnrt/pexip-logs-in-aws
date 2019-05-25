@@ -1,0 +1,2 @@
+stats count_distinct(log_message.Conference_ID) as NumberOfConferences by bin(1d) as Date
+| filter name like 'administrator.conference'
