@@ -4,6 +4,12 @@ Pexip Infinity log analysis on the AWS cloud
 # What is the purpose of this project?
 This is an experiment of using AWS built-in log management, query and analytics tools to help with troubleshooting and searching through the logs of the Pexip Infinity video-conferencing platform.
 
+The Pexip Infinity platform generates 3 types of logs:
+  - "audit" logs - the OS/process-level application layer logs of the Pexip Infinity servers
+  - "support" logs - the higher level application logs, e.g. configuration changes, and communication logs, e.g. SIP, H.323, ICE, REST... communication logs
+  - "web server" logs
+so far this project only deals with the "audit" and "support" logs,  not the "web server" logs.
+
 # How does it work?
 I have created a demo which I published on YouTube in two parts:
   - part 1: shows how to get the logs into AWS CloudWatch Logs, how the provided Lambda function wrangles the logs in JSON and another function exports them into back into CloudWatch Logs and/or S3: 
@@ -20,7 +26,7 @@ It contains
 
 ## What does the template include?
 The CloudFormation template allows you to choose if you want to:
-  - process in AWS both the "audit" logs (the OS/process-level application layer logs of the Pexip Infinity servers) and the "support" logs (the higher level application logs, e.g. configuration changes, and communication logs, e.g. SIP, H.323, ICE, REST... communication logs) or just the "support" logs.
+  - process in AWS both the "audit" logs and the "support" logs or just the "support" logs.
   - try to Export the logs after wrangling in S3, to process them in AWS Glue and Athena too, or just use CloudWatch Logs.
 
 Based on your choices, CloudFormation will provision the below resources:
