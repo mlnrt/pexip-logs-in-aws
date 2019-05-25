@@ -6,7 +6,7 @@ This is an experiment of using AWS built-in log management, query and analytics 
 
 The Pexip Infinity platform generates 3 types of logs:
   - "audit" logs - the OS/process-level application layer logs of the Pexip Infinity servers,
-  - "support" logs - the higher level application logs, e.g. configuration changes, and communication logs, e.g. SIP, H.323, ICE, REST... communication logs,
+  - "support" logs - the higher level application logs, e.g. configuration changes, and communications' logs, e.g. SIP, H.323, ICE, REST... communication logs,
   - "web server" logs.
 
 So far this project only deals with the "audit" and "support" logs,  not the "web server" logs.
