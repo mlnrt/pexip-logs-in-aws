@@ -2,6 +2,33 @@
 Pexip Infinity log analysis on the AWS cloud
 
 # What  is the purpose of this project ?
-This is an experiment of using public cloud services (currently just AWS) built-in log management, query and analytics tools to help with troubleshooting the Pexip Infinity video-conferencing platform.
+This is an experiment of using public cloud services (currently just AWS) built-in log management, query and analytics tools to help with troubleshooting and searching through the logs of the Pexip Infinity video-conferencing platform.
 
-# What does 
+# What does it contains ?
+It contains
+  - an AWS CloudFormation YAML template which will provision most of the needed resources (IAM roles, CloudWatch Logs log groups, Lambda Functions, Glue databases and tables...)
+  - the code for the Lambda functions
+  
+# What do I need to do ?
+
+# What does the CloudFormation template includes ?
+The CloudFormation template allows you to choose if you want to:
+  - process in AWS both the "audit" logs (the OS/process level application layer logs of the Pexip Infinity servers) and the "support" logs (the higher level application logs, e.g. configuration changes, and communication logs, e.g. SIP, H.323, ICE, REST... communication logs) or just the "support" logs.
+  - try to Export the logs after wrangling in S3, to process them in AWS Glue and Athena too, or just use ClouWatch Logs.
+
+Based on your choices, CloudFormation will provision the below resources:
+  - The IAM roles, Policies for:
+    - the EC2 instance which will host your Syslog server, together with the InstanceProfile to be able to attach the role to the EC2 instance.
+    - the Lambda functions
+    - the Glue Crawlers (if you chose the option #2)
+  - The CloudWatch Logs log groups for the "support" logs and the "audit logs" (if you chose to process those too)
+  - The Lambda functions to wrangle and the Pexip logs
+  - The subsciption for the log-wrangling Lambda function to the CloudWatch Logs log groups of the Pexip Infinity "support" and "audit" logs
+  - The Lambda functions to create the Glue tables and partitions (if you chose the option #2)
+  - The Glue databases and crawlers (if you chose the option #2)
+
+# What does the CloudFormation template NOT includes ?
+The CloudFormation template does not include:
+  - the provisioning of an EC2 instance to host the Syslog server
+  - configure the Syslog server with the CloudWatch Logs agent
+  - create all the Glue tables and partitions for all the types of logs. A Lambda function "Pexip_Logs_Create_Glue_Tables" is provided for that, and will have to be run manually with an empty test event "{}" and the environment parameter "CREATE_OR_UPDATE_TABLES_PARTITIONS_AT_THE_SAME_TIME" set to "True"
