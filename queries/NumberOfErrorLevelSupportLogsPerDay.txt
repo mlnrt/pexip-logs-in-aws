@@ -1,0 +1,2 @@
+stats count(name) as NumberOfErrorLevelLogs by bin(1d) as Date
+| filter level like 'ERROR'
