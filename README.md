@@ -6,8 +6,9 @@ This is an experiment of using AWS built-in log management, query and analytics 
 
 # What does the code repo contains ?
 It contains
-  - an AWS CloudFormation YAML template which will provision most of the needed resources (IAM roles, CloudWatch Logs log groups, Lambda Functions, Glue databases and tables...)
-  - the code for the Lambda functions
+  - an AWS CloudFormation YAML template which will provision most of the needed resources (IAM roles, CloudWatch Logs log groups, Lambda Functions, Glue databases and tables...),
+  - the code for the Lambda functions,
+  - a configuration sample file for the AWS CloudWatch Logs Agent which must be installed on the Syslog server,
   - a log metadata file, containing the data structure of all the types of Pexip Infinity logs I have seen in my lab. It is used by the Lambda function which creates all the AWS Glue tables and partitions based on the processed log files already stored in S3. If some types of logs are missing (and some are for sure, like logs for the integration with Microsoft SfB and Teams, which I do not have in my lab) in this case run the provided Glue Crawler (provisioned through the CloudFormation template) against the corresponding log folder in S3.
   
 # What do I need to do ?
@@ -33,5 +34,9 @@ Based on your choices, CloudFormation will provision the below resources:
 # What the CloudFormation template does NOT includes ?
 The CloudFormation template does not include:
   - the provisioning of an EC2 instance to host the Syslog server
-  - configure the Syslog server with the CloudWatch Logs agent
+  - configure the Syslog server with the CloudWatch Logs agent. See AWS documentation https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html
   - create all the Glue tables and partitions for all the types of logs. A Lambda function "Pexip_Logs_Create_Glue_Tables" is provided for that, and will have to be run manually with an empty test event "{}" and the environment parameter "CREATE_OR_UPDATE_TABLES_PARTITIONS_AT_THE_SAME_TIME" set to "True"
+
+# I am missing logs in CloudWatch Logs...
+If you find that some logs are missing, here are some possible reasons:
+  - adjust the 
