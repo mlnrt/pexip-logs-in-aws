@@ -4,6 +4,11 @@ Pexip Infinity log analysis on the AWS cloud
 # What  is the purpose of this project ?
 This is an experiment of using AWS built-in log management, query and analytics tools to help with troubleshooting and searching through the logs of the Pexip Infinity video-conferencing platform.
 
+# How does it work ?
+I have create a demo which I published on Youtube in two parts:
+  - part 1: shows how to get the logs into AWS CloudWatch Logs, how the provided Lambda function wrangles the logs in JSON and another function exports them into back into CloudWatch Logs and/or S3: 
+  - part 2: -- coming soon --
+
 # What does the code repo contains ?
 It contains
   - an AWS CloudFormation YAML template which will provision most of the needed resources (IAM roles, CloudWatch Logs log groups, Lambda Functions, Glue databases and tables...),
@@ -34,9 +39,15 @@ Based on your choices, CloudFormation will provision the below resources:
 # What the CloudFormation template does NOT includes ?
 The CloudFormation template does not include:
   - the provisioning of an EC2 instance to host the Syslog server
-  - configure the Syslog server with the CloudWatch Logs agent. See AWS documentation https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html
+  - configure the Syslog server with the CloudWatch Logs agent. See AWS documentations
+    - to install the Agent on a Linux EC2 instance: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html
+    - to configure the Agent: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html
   - create all the Glue tables and partitions for all the types of logs. A Lambda function "Pexip_Logs_Create_Glue_Tables" is provided for that, and will have to be run manually with an empty test event "{}" and the environment parameter "CREATE_OR_UPDATE_TABLES_PARTITIONS_AT_THE_SAME_TIME" set to "True"
+  
+# Lambda Functions logs
 
 # I am missing logs in CloudWatch Logs...
 If you find that some logs are missing, here are some possible reasons:
-  - adjust the 
+  - adjust on the EC2 Linux Syslog server the CloudWatch Logs Agent "buffer_duration" parameter and the Lambda function "Pexip_Logs_Wrangling" timeout. The buffer_duration controls the time interval during which the CloudWatch Agent will wait and accumulate logs before sending them to CloudWatch Logs. The higher the buffer the more logs are send at once to CloudWatchLogs. If the buffer is too high (one batch of logs will have many, many log messages), and the Lambda function timeout is too low (default=30 seconds), the Lambda function might be terminated, before it was able to wrangle all the logs. Look in the Lambda function's own logs in the CloudWatch Logs log group /aws/lambda/Pexip_Logs_Wrangling for "Task timed out" events.
+  - the "Pexip_Logs_Export" function has timed out before writting all the logs to CloudWatch Logs
+  - there are bugs
