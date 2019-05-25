@@ -4,7 +4,7 @@ Pexip Infinity log analysis on the AWS cloud
 # What  is the purpose of this project ?
 This is an experiment of using AWS built-in log management, query and analytics tools to help with troubleshooting and searching through the logs of the Pexip Infinity video-conferencing platform.
 
-# What does it contains ?
+# What does the code repo contains ?
 It contains
   - an AWS CloudFormation YAML template which will provision most of the needed resources (IAM roles, CloudWatch Logs log groups, Lambda Functions, Glue databases and tables...)
   - the code for the Lambda functions
