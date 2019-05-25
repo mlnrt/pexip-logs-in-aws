@@ -30,7 +30,7 @@ Based on your choices, CloudFormation will provision the below resources:
   - The Lambda functions to create the Glue tables and partitions (if you chose the option #2)
   - The Glue databases and crawlers (if you chose the option #2)
 
-# What does the CloudFormation template NOT includes ?
+# What the CloudFormation template does NOT includes ?
 The CloudFormation template does not include:
   - the provisioning of an EC2 instance to host the Syslog server
   - configure the Syslog server with the CloudWatch Logs agent
