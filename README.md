@@ -66,6 +66,6 @@ By default, the Lambda functions are set in the CloudFormation template with a l
 ## I am missing logs in CloudWatch Logs...
 If you find that some logs are missing, here are some possible reasons:
   - adjust on the EC2 Linux Syslog server the CloudWatch Logs Agent "buffer_duration" parameter and the Lambda function "Pexip_Logs_Wrangling" timeout. The buffer_duration controls the time interval during which the CloudWatch Agent will wait and accumulate logs before sending them to CloudWatch Logs. The higher the buffer the more logs are send at once to CloudWatchLogs. If the buffer is too high (one batch of logs will have many, many log messages), and the Lambda function timeout is too low (default=30 seconds), the Lambda function might be terminated, before it was able to wrangle all the logs. Look in the Lambda function's own logs in the CloudWatch Logs' log group /aws/lambda/Pexip_Logs_Wrangling for "Task timed out" events.
-  - the "Pexip_Logs_Export" function has timed out before writting all the logs to CloudWatch Logs
+  - the "Pexip_Logs_Export" function has timed out before writing all the logs to CloudWatch Logs
   - if you try to use Glue and Athena, there are for sure logs missing in the provided file "pexip_logs_metadata.json"
   - there are bugs in my code
