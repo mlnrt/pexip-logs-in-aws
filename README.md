@@ -8,18 +8,21 @@ This is an experiment of using public cloud services (currently just AWS) built-
 It contains
   - an AWS CloudFormation YAML template which will provision most of the needed resources (IAM roles, CloudWatch Logs log groups, Lambda Functions, Glue databases and tables...)
   - the code for the Lambda functions
+  - a log metadata file, containing the data structure of all the types of Pexip Infinity logs I have seen in my lab. It is used by the Lambda function which creates all the AWS Glue tables and partitions based on the processed log files already stored in S3. If some types of logs are missing (and some are for sure, like logs for the integration with Microsoft SfB and Teams, which I do not have in my lab) in this case run the provided Glue Crawler (provisioned through the CloudFormation template) against the corresponding log folder in S3.
   
 # What do I need to do ?
 
 # What does the CloudFormation template includes ?
 The CloudFormation template allows you to choose if you want to:
-  - process in AWS both the "audit" logs (the OS/process level application layer logs of the Pexip Infinity servers) and the "support" logs (the higher level application logs, e.g. configuration changes, and communication logs, e.g. SIP, H.323, ICE, REST... communication logs) or just the "support" logs.
+  - process in AWS both the "audit" logs (the OS/process-level application layer logs of the Pexip Infinity servers) and the "support" logs (the higher level application logs, e.g. configuration changes, and communication logs, e.g. SIP, H.323, ICE, REST... communication logs) or just the "support" logs.
   - try to Export the logs after wrangling in S3, to process them in AWS Glue and Athena too, or just use ClouWatch Logs.
 
 Based on your choices, CloudFormation will provision the below resources:
   - The IAM roles, Policies for:
     - the EC2 instance which will host your Syslog server, together with the InstanceProfile to be able to attach the role to the EC2 instance.
     - the Lambda functions
+    - the Lambda Permission for the log wrangling function to subscribe to the CloudWatch Logs log stream
+    - the Glue databases (if you chose the option #2)
     - the Glue Crawlers (if you chose the option #2)
   - The CloudWatch Logs log groups for the "support" logs and the "audit logs" (if you chose to process those too)
   - The Lambda functions to wrangle and the Pexip logs
