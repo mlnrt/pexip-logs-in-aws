@@ -24,3 +24,10 @@ I have created a demo which I published on YouTube in two parts:
   - Deploy manually an EC2 linux instance, install on it a Syslog server and CloudWatch Agent, configure it (see the Wiki section "Configuration of the CloudWatch Logs Agent") and apply to the EC2 instance the IAM Role "Role_for_EC2_Syslog_Server" provisioned by the CloudFormation template
 
 Look at this projects' wiki for more details: https://github.com/mlnrt/pexip-logs-in-aws/wiki
+
+# Credits
+The code of this function is based on the code written by 
+  @ V.Megler 
+  @ Amazon.com 
+  @ August 2017  
+provided in this blog post: https://aws.amazon.com/blogs/mt/how-to-export-ec2-instance-execution-logs-to-an-s3-bucket-using-cloudwatch-logs-lambda-and-cloudformation/
