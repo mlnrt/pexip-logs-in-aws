@@ -13,10 +13,13 @@ So far this project only deals with the "audit" and "support" logs,  not the "we
 
 # How does it work?
 I have created a demo which I published on YouTube in two parts:
-  - part 1: shows how to get the logs into AWS CloudWatch Logs, how the provided Lambda function wrangles the logs in JSON and another function exports them into back into CloudWatch Logs and/or S3: 
+  - part 1: shows how to get the logs into AWS CloudWatch Logs, how the provided Lambda function wrangles the logs in JSON and another function exports them into back into CloudWatch Logs and/or S3: https://youtu.be/2Pf4KuHPsZQ
   - part 2: -- coming soon --
   
-Look at this projects' wiki for more details: https://github.com/mlnrt/pexip-logs-in-aws/wiki
-
 # How do I get started?
-Download the "code_and
+- Create an S3 bucket in your AWS account to store the code, and config files
+- Download the files from "code_and_config"
+- Copy the files in a "/code" folder inside your S3 bucket
+- Create a CloudFormation Stack using the "cf_template.yaml" and give your bucket name when asked for it
+
+Look at this projects' wiki for more details: https://github.com/mlnrt/pexip-logs-in-aws/wiki
