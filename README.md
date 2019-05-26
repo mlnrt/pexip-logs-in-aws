@@ -17,3 +17,6 @@ I have created a demo which I published on YouTube in two parts:
   - part 2: -- coming soon --
   
 Look at this projects' wiki for more details: https://github.com/mlnrt/pexip-logs-in-aws/wiki
+
+# How do I get started?
+Download the "code_and
