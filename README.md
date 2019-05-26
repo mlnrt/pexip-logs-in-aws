@@ -26,7 +26,7 @@ I have created a demo which I published on YouTube in two parts:
 Look at this projects' wiki for more details: https://github.com/mlnrt/pexip-logs-in-aws/wiki
 
 # Credits
-The code of this function is based on the code written by 
+The code of the Lambda functions "Pexip_Logs_Wrangling" and "Pexip_Logs_Export" is based on the code written by 
   @ V.Megler 
   @ Amazon.com 
   @ August 2017  
