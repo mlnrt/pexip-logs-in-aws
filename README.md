@@ -1,4 +1,4 @@
-# pexip-logs-on-aws
+# pexip-logs-in-aws
 Pexip Infinity log analysis on the AWS cloud
 
 # What is the purpose of this project?
