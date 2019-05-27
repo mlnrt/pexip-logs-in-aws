@@ -18,12 +18,12 @@ I have created a demo which I published on YouTube in two parts:
   
 # How do I get started?
   - Create an S3 bucket in your AWS account to store the code, and config files
-  - Download the files from "code_and_config"
-  - Copy the files in a "/code" folder inside your S3 bucket
+  - Download this repository
+  - Copy the files from the repository "code_and_config/" in a "code/" 'folder' inside your S3 bucket
   - Create a CloudFormation Stack using the "cf_template.yaml" and give your bucket name when asked for it
   - Deploy manually an EC2 linux instance, install on it a Syslog server and CloudWatch Agent, configure it (see the Wiki section "Configuration of the CloudWatch Logs Agent") and apply to the EC2 instance the IAM Role "Role_for_EC2_Syslog_Server" provisioned by the CloudFormation template
 
-Look at this projects' wiki for more details: https://github.com/mlnrt/pexip-logs-in-aws/wiki
+Look at this project's wiki for more details: https://github.com/mlnrt/pexip-logs-in-aws/wiki
 
 # Credits
 The code of the Lambda functions "Pexip_Logs_Wrangling" and "Pexip_Logs_Export" is based on the code written by 
