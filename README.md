@@ -1,5 +1,5 @@
 # pexip-logs-in-aws
-Pexip Infinity log analysis on the AWS cloud
+Pexip Infinity log analysis in the AWS cloud
 
 # What is the purpose of this project?
 This is an experiment of using AWS built-in log management, query and analytics tools to help with troubleshooting and searching through the logs of the Pexip Infinity video-conferencing platform.
