@@ -54,8 +54,8 @@ Based on your choices, CloudFormation will provision the below resources:
   - The Lambda Functions to create the Glue Tables and Tartitions (if you chose the option #2)
   - The Glue Databases and Crawlers (if you chose the option #2)
   
-![](images/cf-template-designer-p1.png)
-![](images/cf-template-designer-p2.png)
+![](images/cf-template-designer-p.png)
+![](images/cf-template-designer-p.png)
 
 ## What the template does NOT include?
 The CloudFormation template does not include:
