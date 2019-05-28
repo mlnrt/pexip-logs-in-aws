@@ -112,7 +112,7 @@ If you find that some logs are missing, here are some possible reasons:
 
 # Credits
 The code of the Lambda functions "Pexip_Logs_Wrangling" and "Pexip_Logs_Export" is based on the code written by 
-  @ V.Megler 
-  @ Amazon.com 
-  @ August 2017  
+  @V.Megler 
+  @Amazon.com 
+  @August 2017  
 provided in this blog post: https://aws.amazon.com/blogs/mt/how-to-export-ec2-instance-execution-logs-to-an-s3-bucket-using-cloudwatch-logs-lambda-and-cloudformation/logs-lambda-and-cloudformation/
