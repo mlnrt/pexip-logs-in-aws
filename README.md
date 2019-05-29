@@ -53,9 +53,9 @@ Based on your choices, CloudFormation will provision the below resources:
   - The subscription for the log-wrangling Lambda Function to the CloudWatch Logs' log groups of the Pexip Infinity "support" and "audit" logs
   - The Lambda Functions to create the Glue Tables and Tartitions (if you chose the option #2)
   - The Glue Databases and Crawlers (if you chose the option #2)
-  
-![](images/cf-template-designer-p2.png)
+
 ![](images/cf-template-designer-p1.png)
+![](images/cf-template-designer-p2.png)
 
 ## What the template does NOT include?
 The CloudFormation template does not include:
