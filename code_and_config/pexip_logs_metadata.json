@@ -32,7 +32,7 @@
     "log_struct": {
       "ADD_GROUP": "struct<msg:string,pid:int,uid:int,auid:bigint,ses:bigint,subj:string,submsg:struct<op:string,id:string,exe:string,hostname:string,addr:string,terminal:string,res:string>>",
       "ADD_USER": "struct<msg:string,pid:int,uid:int,auid:bigint,ses:bigint,subj:string,submsg:struct<op:string,id:string,exe:string,hostname:string,addr:string,terminal:string,res:string>>",
-      "AVC": "struct<msg:string,pid:int,comm:string,path:string,dev:string,ino:int,scontext:string,tcontext:string,tclass:string,permissive:int,name:string,dest:string,src:string,capability:string,saddr:string,ioctlcmd:int,kmod:string,lport:string,laddr:string,faddr:string,fport:string,key:string>",
+      "AVC": "struct<msg:string,pid:int,comm:string,path:string,dev:string,ino:int,scontext:string,tcontext:string,tclass:string,permissive:int,name:string,dest:string,src:string,capability:string,saddr:string,ioctlcmd:string,kmod:string,lport:string,laddr:string,faddr:string,fport:string,key:string>",
       "CAPSET": "struct<msg:string,pid:int,cap_pi:string,cap_pp:string,cap_pe:string,cap_pa:string>",
       "CONFIG_CHANGE": "struct<msg:string,auid:bigint,ses:bigint,op:string,path:string,key:string,list:string,res:string>",
       "CRED_ACQ": "struct<msg:string,pid:int,uid:int,auid:bigint,ses:bigint,subj:string,submsg:struct<op:string,acct:string,exe:string,hostname:string,addr:string,terminal:string,res:string>>",
