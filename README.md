@@ -15,7 +15,7 @@ So far this project only deals with the "audit" and "support" logs,  not the "we
 
 # How does it work?
 I have created a demo which I published on YouTube in two parts:
-* part 1: shows how to get the logs into AWS CloudWatch Logs, how the provided Lambda function wrangles the logs in JSON and another function exports them into back into CloudWatch Logs and/or S3: https://youtu.be/2Pf4KuHPsZQ
+* part 1: shows how to get the logs into AWS CloudWatch Logs, how the provided Lambda function wrangles the logs in JSON and another function exports them into back into CloudWatch Logs and/or S3: https://youtu.be/PIhJicc_jqQ
 * part 2: -- coming soon --
 
 # How do I get started?
