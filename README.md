@@ -23,7 +23,7 @@ I have created a demo which I published on YouTube in two parts:
 * Download this repository
 * Copy the files from the repository "code_and_config/" into a "code/" 'folder' inside your S3 bucket
 * Create a CloudFormation Stack using the "cf_template.yaml" and give your bucket name when asked for it
-* Deploy manually an EC2 linux instance, install on it a Syslog server and CloudWatch Agent, configure it (see the details below in the section "Configuration of the CloudWatch Logs Agent") and apply to the EC2 instance the IAM Role "Role_for_EC2_Syslog_Server" provisioned by the CloudFormation template
+* Deploy manually an EC2 linux instance, install on it a Syslog server and CloudWatch Agent, configure it (see the details below in the section "Configuration of the CloudWatch Logs Agent") and apply to the EC2 instance the IAM Role "Role_for_EC2_Syslog_Server" provisioned by the CloudFormation template - The EC2 instance must be restarted for the the new role to take effect -
 
 # What does the code repo contain?
 It contains
