@@ -23,12 +23,12 @@ I have created a demo which I published on YouTube in two parts:
 * Download this repository
 * Copy the files from the repository "code_and_config/" into a "code/" 'folder' inside your S3 bucket
 * Create a CloudFormation Stack using the "cf_template.yaml" and give your bucket name when asked for it
-* Deploy manually an EC2 linux instance, install on it a Syslog server and CloudWatch Agent, configure it (see the details below in the section "Configuration of the CloudWatch Logs Agent") and apply to the EC2 instance the IAM Role "Role_for_EC2_Syslog_Server" provisioned by the CloudFormation template - The EC2 instance must be restarted for the the new role to take effect -
+* Deploy manually an EC2 linux instance, install on it a Syslog server and CloudWatch Agent, configure it (see the details below in the section "Configuration of the CloudWatch Logs Agent") and apply to the EC2 instance the IAM Role "Role_for_EC2_Syslog_Server" provisioned by the CloudFormation template - The EC2 instance must be restarted for the new role to take effect -
 
 # What does the code repo contain?
 It contains
-* -- coming soon -- an AWS CloudFormation YAML template which will provision most of the needed resources (IAM roles, CloudWatch Logs log groups, Lambda Functions, Glue databases and tables...),
-* -- coming soon -- the code for the Lambda functions,
+* an AWS CloudFormation YAML template which will provision most of the needed resources (IAM roles, CloudWatch Logs log groups, Lambda Functions, Glue databases and tables...),
+* the code for the Lambda functions,
 * a configuration sample file for the AWS CloudWatch Logs Agent which must be installed on the Syslog server (IMPORTANT: use the same names for the CloudWatch Logs' log group and log stream - see the details below),
 * a log metadata file, containing the data structure of all the types of Pexip Infinity logs I have seen in my lab. It is used by the two Lambda Function which create all the AWS Glue tables and partitions based on the processed log files already stored in S3. If some types of logs are missing (and some are for sure, like logs for the integration with Microsoft SfB and Teams, which I do not have in my lab) in this case run the provided Glue Crawler (provisioned through the CloudFormation template) against the corresponding log folder in S3.
   
