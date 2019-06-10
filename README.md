@@ -16,7 +16,8 @@ So far this project only deals with the "audit" and "support" logs,  not the "we
 # How does it work?
 I have created a demo which I published on YouTube in two parts:
 * part 1: shows how to get the logs into AWS CloudWatch Logs, how the provided Lambda function wrangles the logs in JSON and another function exports them into back into CloudWatch Logs and/or S3: https://youtu.be/PIhJicc_jqQ
-* part 2: https://youtu.be/e2qK7u1P5BA
+* part 2: shows an attempt to use AWS Glue and Athena to query the logs, and an attempt to use CloudWatch Logs Insights https://youtu.be/e2qK7u1P5BA
+* part 3: -- coming soon -- will provide a version 2 of this project and will demo some interesting CloudWatch Logs Insights queries
 
 # How do I get started?
 * Create an S3 bucket in your AWS account to store the code, and config files
@@ -26,7 +27,7 @@ I have created a demo which I published on YouTube in two parts:
 * Deploy manually an EC2 linux instance, install on it a Syslog server and CloudWatch Agent, configure it (see the details below in the section "Configuration of the CloudWatch Logs Agent") and apply to the EC2 instance the IAM Role "Role_for_EC2_Syslog_Server" provisioned by the CloudFormation template - The EC2 instance must be restarted for the new role to take effect -
 
 # Do you have some CloudWatch Logs Insights sample queries?
-Yes, in the Wiki: https://github.com/mlnrt/pexip-logs-in-aws/wiki/CloudWatch-Logs-Insights-example-queries
+Yes, in the Wiki: https://github.com/mlnrt/pexip-logs-in-aws/wiki/CloudWatch-Logs-Insights-sample-queries
 
 # What does the code repo contain?
 It contains
